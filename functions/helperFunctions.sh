@@ -1194,7 +1194,7 @@ function emulatorInit(){
 			launch_args=()
 			for rom in "${params[@]}"; do
 				# Parsers previously had single quotes ("'/path/to/rom'" ), this allows those shortcuts to continue working.
-				removedLegacySingleQuotes=$(echo "$rom" | sed "s/^'//; s/'$//")
+				removedLegacySingleQuotes=$(printf -- "$rom" | sed "s/^'//; s/'$//")
 				launch_args+=("$removedLegacySingleQuotes")
 			done
 
